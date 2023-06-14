@@ -1,6 +1,8 @@
 import {
 	INodeType,
-	INodeTypeDescription
+	INodeTypeDescription,
+	IWebhookFunctions,
+	IWebhookResponseData
 } from 'n8n-workflow';
 
 export class ForestAdmin implements INodeType {
@@ -18,14 +20,22 @@ export class ForestAdmin implements INodeType {
 		},
 		inputs: ['main'],
 		outputs: ['main'],
-		webhooks: [
-			{
-				name: 'default',
-				httpMethod: 'POST',
-				responseMode: 'onReceived',
-				path: 'webhook',
-			},
-		],
+		webhooks: [{
+			name: 'default',
+			httpMethod: 'POST',
+			responseMode: 'onReceived',
+			path: 'webhook',
+		}],
 		properties: [],
 	};
+
+	async webhook(this: IWebhookFunctions): Promise<IWebhookResponseData> {
+		const req = this.getRequestObject();
+		
+		return {
+			workflowData: [
+				this.helpers.returnJsonArray(req.body),
+			],
+	};
+}
 }
