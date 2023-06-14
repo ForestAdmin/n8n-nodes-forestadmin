@@ -36,6 +36,6 @@ export class ForestAdmin implements INodeType {
 			workflowData: [
 				this.helpers.returnJsonArray(req.body),
 			],
-	};
-}
+		};
+	}
 }
