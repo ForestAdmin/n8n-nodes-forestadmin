@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-forestadmin",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Executes the workflow when an action is triggered on Forest Admin",
   "keywords": [
     "n8n-community-node-package"
