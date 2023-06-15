@@ -23,7 +23,7 @@ export class ForestAdmin implements INodeType {
 		webhooks: [{
 			name: 'default',
 			httpMethod: 'POST',
-			responseMode: 'onReceived',
+			responseMode: 'lastNode',
 			path: 'webhook',
 		}],
 		properties: [],
