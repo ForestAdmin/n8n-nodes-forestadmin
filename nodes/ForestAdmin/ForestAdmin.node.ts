@@ -30,11 +30,10 @@ export class ForestAdmin implements INodeType {
 	};
 
 	async webhook(this: IWebhookFunctions): Promise<IWebhookResponseData> {
-		const req = this.getRequestObject();
+		// const req = this.getRequestObject();
 		
 		return {
 			workflowData: [
-				this.helpers.returnJsonArray(req.body),
 			],
 		};
 	}
